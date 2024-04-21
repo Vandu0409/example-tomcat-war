@@ -22,9 +22,9 @@ pipeline {
 
         stage('Deploy') {
             steps {
-               sh 'rsync  ${WORKSPACE}/target/*.war ec2-user@13.232.24.186:/home/ec2-user/'
-               sh 'ssh ec2-user@13.232.24.186'
-               sh 'sudo /home/ec2-user/*.war /opt/tomcat/webapps'
+               sh 'sudo rsync  ${WORKSPACE}/target/*.war /opt/tomcat/webapps'
+               //sh 'ssh ec2-user@13.232.24.186'
+               //sh 'sudo /home/ec2-user/*.war /opt/tomcat/webapps'
       
             }
         }
