@@ -23,7 +23,7 @@ pipeline {
         stage('Deploy') {
             steps {
                sshagent(['tomcat']) {
-                   rsync  ${WORKSPACE}/target/*.war root@13.232.24.186:/opt/tomcat/webapps
+                  sh 'rsync  ${WORKSPACE}/target/*.war ec2-user@13.232.24.186:/opt/tomcat/webapps'
                 }
               // sh 'rsync  ${WORKSPACE}/target/*.war root@13.232.24.186:/opt/tomcat/webapps'
                //sh 'ssh ec2-user@13.232.24.186'
